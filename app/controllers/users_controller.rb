@@ -11,7 +11,8 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_url(@user), notice: "Пользователь обновлен"
     else
-      render :edit
+      flash.each
+      render :edit, notice: "Ошибка"
     end
   end
 
